@@ -13,7 +13,6 @@ namespace Core.Specifications
         public BaseSpecification(Expression<Func<T, bool>> criteria)
         {
             Criteria = criteria;
-            
         }
 
         public Expression<Func<T, bool>> Criteria {get; }
@@ -40,6 +39,7 @@ namespace Core.Specifications
         {
             OrderBy = orderByExpression;
         }
+
         protected void AddOrderByDescending(Expression<Func<T, object>> orderByDescExpression)
         {
             OrderByDescending = orderByDescExpression;

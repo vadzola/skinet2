@@ -7,10 +7,9 @@ namespace Infrastructure.Data
 {
     public class SpecificationEvaluator<TEntity> where TEntity : BaseEntity
     {
-        public static IQueryable<TEntity> GetQuery(IQueryable<TEntity> inputQuerry, 
-        ISpecification<TEntity> spec)
+        public static IQueryable<TEntity> GetQuery(IQueryable<TEntity> inputQuery, ISpecification<TEntity> spec)
         {
-            var query = inputQuerry;
+            var query = inputQuery;
 
             if (spec.Criteria != null)
             {
@@ -22,7 +21,7 @@ namespace Infrastructure.Data
                 query = query.OrderBy(spec.OrderBy);
             }
 
-             if (spec.OrderByDescending != null)
+            if (spec.OrderByDescending != null)
             {
                 query = query.OrderByDescending(spec.OrderByDescending);
             }
